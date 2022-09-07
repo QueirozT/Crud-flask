@@ -17,6 +17,12 @@ Este é um projeto simples para conhecer o flask e suas ferramentas.
 flask run
 ```
 
+ou
+
+```sh
+gunicorn wsgi:app
+```
+
 ## Como migrar o banco de dados?
 
 ```sh
