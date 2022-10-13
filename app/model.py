@@ -13,5 +13,5 @@ def configure(app):
 class Book(db.Model):
     """Esta classe é responsável por criar o modelo da tabela Pessoa"""
     id = db.Column(db.Integer, primary_key=True)
-    livro = db.Column(db.String(255))
-    escritor = db.Column(db.String(255))
+    livro = db.Column(db.String(255), nullable=False)
+    escritor = db.Column(db.String(255), nullable=False)
