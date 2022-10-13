@@ -4,20 +4,18 @@ from flask_migrate import Migrate
 from .model import configure as config_db
 from .serializer import configure as config_ma
 
-from .pessoas import bp_pessoas
+from .books import bp_books
 
 
-def create_app():
+def create_app(config_class):
     app = Flask(__name__)
-
-    app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///../crud.db'
-    app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+    app.config.from_object(config_class)
 
     config_db(app)
     config_ma(app)
 
     Migrate(app, app.db)
 
-    app.register_blueprint(bp_pessoas)
+    app.register_blueprint(bp_books)
 
     return app
