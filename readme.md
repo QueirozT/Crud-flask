@@ -14,7 +14,7 @@ Este é um projeto simples para conhecer o flask e suas ferramentas.
 ## Como rodar?
 
 ```sh
-flask run
+python wsgi.py
 ```
 
 ou
