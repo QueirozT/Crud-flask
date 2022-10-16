@@ -1,5 +1,4 @@
-from xml.dom import NotFoundErr, ValidationErr
-from flask import Blueprint, current_app, request, jsonify
+from flask import Blueprint, current_app, jsonify, request
 from flask_marshmallow import exceptions
 
 from .model import Book
@@ -36,9 +35,9 @@ def atualizar(id):
     query = Book.query.filter_by(id=id)
     try:
         if not query.first():
-            raise NotFoundErr
+            raise KeyError
         query.update(request.json)
-    except NotFoundErr as e:
+    except KeyError as e:
         return jsonify({'Error': {'id': id}}), 400
     except:
         return jsonify({'Error': request.json}), 400
